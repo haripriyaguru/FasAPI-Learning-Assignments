@@ -3,8 +3,16 @@ from fastapi.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
 import secrets
 import uvicorn
+
+load_dotenv()
+
+MONGO_URI = os.getenv("MONGO_URI")
+
+client = MongoClient(MONGO_URI)
 
 app = FastAPI()
 
@@ -16,52 +24,10 @@ app.mount(
     name="static"
 )
 
-
-# MongoDB Atlas
-client = MongoClient(
-    "mongodb+srv://<user_name>:<password>@cluster0.spucqgo.mongodb.net/?appName=Cluster0"
-)
-
 db = client["ass20_database"]
-
 users_collection = db["users"]
 
-
-# Session storage
 sessions = {}
-
-
-# Create sample users
-if users_collection.count_documents({}) == 0:
-
-    users_collection.insert_many([
-        {
-            "username": "hari",
-            "password": "12345",
-            "role": "user"
-        },
-        {
-            "username": "admin",
-            "password": "admin123",
-            "role": "admin"
-        },
-        {
-            "username": "priya",
-            "password": "12345",
-            "role": "user"
-        },
-        {
-            "username": "arun",
-            "password": "12345",
-            "role": "user"
-        },
-        {
-            "username": "kavi",
-            "password": "12345",
-            "role": "user"
-        }
-    ])
-
 
 # Login page
 @app.get("/")
