@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Profile</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Welcome {{ username }}</h1>
+
+        <p>Role: {{ role }}</p>
+
+        {% if role == "admin" %}
+
+            <a href="/admin">
+                Go to Admin Page
+            </a>
+
+            <br><br>
+
+        {% endif %}
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </div>
+
+</body>
+
+</html>

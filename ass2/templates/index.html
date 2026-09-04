@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Reverser</title>
+</head>
+
+<body>
+
+    <h1>Text Reverser</h1>
+
+    <form action="/reverse" method="post">
+
+        <input
+            type="text"
+            name="text"
+            placeholder="Enter text"
+            required
+        >
+
+        <button type="submit">
+            Reverse
+        </button>
+
+    </form>
+
+    {% if original_text %}
+        <p>Original: {{ original_text }}</p>
+        <p>Reversed: {{ reversed_text }}</p>
+    {% endif %}
+
+</body>
+</html>

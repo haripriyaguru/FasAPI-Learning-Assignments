@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Login</h1>
+
+        <form action="/login" method="post">
+
+            <label>Username</label>
+
+            <input
+                type="text"
+                name="username"
+                required
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                name="password"
+                required
+            >
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <p>Normal User: hari / 12345</p>
+
+        <p>Admin: admin / admin123</p>
+
+    </div>
+
+</body>
+
+</html>
