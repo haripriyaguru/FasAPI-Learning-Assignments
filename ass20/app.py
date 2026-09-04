@@ -19,7 +19,7 @@ app.mount(
 
 # MongoDB Atlas
 client = MongoClient(
-    "mongodb+srv://haripriyagurunathan_db_user:B7ZOkmDq73uXt6vb@cluster0.spucqgo.mongodb.net/?appName=Cluster0"
+    "mongodb+srv://<user_name>:<password>@cluster0.spucqgo.mongodb.net/?appName=Cluster0"
 )
 
 db = client["ass20_database"]
